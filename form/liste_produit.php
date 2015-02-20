@@ -1,6 +1,8 @@
 <html>
 <head>
 	<title>Liste des produits</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 </head>
 <body>
     <?php include("connexion.php") ?>
@@ -8,7 +10,6 @@
 		$req="SELECT * FROM produit";
 		$co=connect();	
 		$requete=$co->query($req);
-		// $liste=$requete->fetch();
 		echo'
 		<h1 class="bg-info">Liste des produits</h1>
 		<table class="table table-condensed">
@@ -23,13 +24,13 @@
 			<tr>';
 		while($liste = $requete->fetch()){
 			echo'<tr>
-				<td>'.$liste["codeBarre"].'</td>
+				<td>'.$liste["reference"].'</td>
 				<td>'.$liste["libelle"].'</td>
 				<td>'.$liste["fournisseur"].'</td>
 				<td>'.$liste["seuil"].'</td>
 				<td>'.$liste["quantiteStock"].'</td>	
 				<td>'.$liste["quantiteReapprovisionnement"].'</td>	
-				<td><a class="btn btn-primary" href="formulaire_commande.php?code='.$liste["codeBarre"].'&libelle='.$liste["libelle"].'&quantiteStock='.$liste["quantiteStock"].'">Commander</a></td>	
+				<td><a class="btn btn-primary" href="formulaire_commande.php?code='.$liste["reference"].'&libelle='.$liste["libelle"].'&quantiteStock='.$liste["quantiteStock"].'">Commander</a></td>	
 			</tr>';
 		}	
 		echo"		

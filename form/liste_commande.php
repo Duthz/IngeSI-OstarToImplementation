@@ -1,7 +1,11 @@
 <html>
-    <header><title>Liste des commandes</title></header>
+    <header><title>Liste des commandes</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    </header>
     <body>
-        <?php include("connexion.php") ?>
+        <?php include("connexion.php") 
+        ?>
         <?php
             if(isset($_GET["id"])){
                 $req="CALL payment_order(?)";
@@ -15,7 +19,7 @@
 
             $req="SELECT idCommande, nom, prenom, adresse, libelle, quantiteCommande, dateCommande, estPayee
                   FROM commande, client, produit
-                  WHERE commande.codeBarre = produit.codeBarre
+                  WHERE commande.reference = produit.reference
                   AND commande.idClient = client.idClient";
 
             $co=connect();

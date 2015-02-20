@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Création de produit</title>
+		<title>Gestion des produits</title>
 	</head>
 	<body>
 		<?php

@@ -1,14 +1,16 @@
 <html>
 <head>
 	<title>Liste des clients</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 </head>
 <body>
-    <?php include("connexion.php") ?>
+    <?php include("connexion.php") 
+    ?>
 	<?php
 		$req="SELECT * FROM client";
 		$co=connect();	
 		$requete=$co->query($req);
-		// $liste=$requete->fetch();
 		echo'
 		<h1 class="bg-info">Liste des clients</h1>
 		<table class="table table-condensed">

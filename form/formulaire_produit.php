@@ -1,16 +1,19 @@
 <html>
 <head>
 	<title>Création de produit</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 </head>
 <body>
-<?php include("connexion.php"); ?>
+<?php include("connexion.php");
+    ?>
 	<?php 
 		if(isset($_POST["libelle"]) && 
 			isset($_POST["fournisseur"]) && 
 			isset($_POST["seuil"]) && 
 			isset($_POST["qtyStock"]) && 
 			isset($_POST["qtyReapp"]) &&
-			isset($_POST["codeBarre"])){
+			isset($_POST["reference"])){
 
 				$req="CALL new_product(?,?,?,?,?,?)";
 				$co=connect();	
@@ -18,7 +21,7 @@
 				$requete->bindParam(1,$_POST["libelle"]);
 				$requete->bindParam(2,$_POST["fournisseur"]);
 				$requete->bindParam(3,$_POST["seuil"]);
-				$requete->bindParam(4,$_POST["codeBarre"]);
+				$requete->bindParam(4,$_POST["reference"]);
 				$requete->bindParam(5,$_POST["qtyStock"]);
 				$requete->bindParam(6,$_POST["qtyReapp"]);
 				$verif=$requete->execute();
@@ -33,7 +36,7 @@
 	<form action="" method="POST">
 		<table class="table table-condensed">
 			<tr><td>Code barre</td>
-				<td><input type="text" name="codeBarre"/></td>
+				<td><input type="text" name="reference"/></td>
 			</tr>
 			<tr><td>Libellé</td>
 				<td><input type="text" name="libelle"/></td>

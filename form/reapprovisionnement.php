@@ -1,5 +1,8 @@
 <html>
-    <header><title>Réapprovisionner</title></header>
+    <header><title>Réapprovisionner</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    </header>
     <body>
     <?php include("connexion.php") ?>
     <?php

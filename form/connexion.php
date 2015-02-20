@@ -1,9 +1,9 @@
 <?php
 	
 	function connect(){
-		$base="just4you";
+		$base="Just4You";
 		$user="root";
-		$pass="";
+		$pass="root";
 		$host="localhost";
 		try{
 			$bdconnect=new PDO('mysql:host='.$host.';dbname='.$base, $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

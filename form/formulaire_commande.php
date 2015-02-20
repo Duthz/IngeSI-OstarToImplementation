@@ -1,10 +1,13 @@
 <html>
 <head>
 	<title>Commande de produit</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 </head>
 <body>
 
-    <?php include("connexion.php"); ?>
+    <?php 
+    include("connexion.php");             ?>
 
 	<?php 
 		if(isset($_GET["code"]) && isset($_GET["libelle"]) && isset($_GET["quantiteStock"])){
@@ -13,10 +16,10 @@
 	<h1 class="bg-info"><?php echo "Commande du produit : ".$_GET["libelle"]." - ".$_GET["code"] ?></h1>
 	<h2><?php echo "Quantité en stock : ".$_GET["quantiteStock"]?></h3>
 
-	<?php $codeBarre = isset($_GET['code']) ? $_GET['code'] : ""; ?>
+	<?php $reference = isset($_GET['code']) ? $_GET['code'] : ""; ?>
 	
 	<form action="formulaire_client.php" method="POST">
-		<input type="hidden" name="codeBarre" value="<?php echo $codeBarre; ?>" /> 
+		<input type="hidden" name="reference" value="<?php echo $reference; ?>" /> 
 		<table class="table table-condensed">
 			<tr><td>Quantité à commander</td>
 				<td><input type="text" name="quantiteCommande"/></td>
@@ -25,23 +28,7 @@
 		</table>
 	</form>
 
-	<?php
-/*	}else if(isset($_POST["quantiteCommande"])){
-
-			$req="INSERT INTO commande(quantiteCommande)
-					VALUES (:quantiteCommande)";
-
-			$connect = connect();
-			$requete=$connect -> prepare($req);
-			$verif=$requete -> execute(array(
-				"quantiteCommande"=>$_POST["quantiteCommande"]));
-
-			if($verif) {
-				echo "<h1>Commande ajouté !!</h1>";
-			} else {
-				echo "<h1> Erreur : commande non ajouté !! </h1>";
-			}
-*/		
+	<?php	
 	
 	}else{ ?>	
 		
